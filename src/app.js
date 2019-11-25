@@ -3,10 +3,11 @@ const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
 const helmet = require('helmet')
+const { NODE_ENV } = require('./config')
 
 const app = express()
 
-const { NODE_ENV } = require('./config')
+const morganOption = (NODE_ENV === 'production')
   ? 'tiny'
   : 'common';
 
